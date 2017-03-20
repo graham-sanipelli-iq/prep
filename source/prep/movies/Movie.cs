@@ -39,5 +39,9 @@ namespace code.prep.movies
       return new IsInGenre(genre);
     }
 
+    public static IMatchA<Movie> published_between(int yearStart, int yearEnd)
+        {
+            return new PublishedBetweenYears(yearStart, yearEnd);
+        }
   }
 }

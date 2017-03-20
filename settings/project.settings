@@ -162,7 +162,7 @@ configure({
 
     provider: 'github', #possible values [github, bitbucket]
 
-    remotes: %w/CunningMatthew lncramer RyanMarcotte jeffthiele-iq wpetrowski NathanMagnus jesseh77 graham-sanipelli-iq cbigsby jamest-iqmetrix lastiriIQ garrettsamm-iq chrisventura tylerrempel-iq lawrencel gbewcyk TreveorSweetland DajHarms/,
+    remotes: %w/CunningMatthew lncramer RyanMarcotte jeffthiele-iq wpetrowski NathanMagnus jesseh77 graham-sanipelli-iq cbigsby jamest-iqmetrix lastiriIQ garrettsamm-iq chrisventura tylerrempel-iq lawrencel gbewcyk TrevorSweetland DajHarms akrogsgaard davidmatiqmetrix/,
 
     repo: 'prep' 
   },

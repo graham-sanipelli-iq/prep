@@ -316,7 +316,7 @@ namespace code.prep.movies
           ProductionStudio.Dreamworks,
           ProductionStudio.Universal,
           ProductionStudio.Disney)
-          .then_by(x => x.date_published, SortOrder.descending);
+          .then_by(x => x.date_published, SortOrder.ascending);
 
         var results = sut.all().sort_using(comparer);
         /* should return a set of results 

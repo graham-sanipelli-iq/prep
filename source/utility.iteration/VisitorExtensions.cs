@@ -6,18 +6,30 @@ namespace code.utility.iteration
 {
   public static class VisitorExtensions
   {
-    public static Result sum<Element, Result>(this IEnumerable<Element> items,
+    public static Result avg<Element, Result>(this IEnumerable<Element> items,
       IGetTheValueOfAProperty<Element, Result> accessor)
     {
       return items.get_result_of_processing_all_with(
-        new SummingVisitor<Element, Result>(accessor,
+        new AveragingVisitor<Element, Result>(createSummer(accessor)));
+
+    }
+
+    public static Result sum<Element, Result>(this IEnumerable<Element> items,
+      IGetTheValueOfAProperty<Element, Result> accessor)
+    {
+      return items.get_result_of_processing_all_with(createSummer(accessor));
+
+    }
+
+    public static SummingVisitor<Element, Result> createSummer<Element, Result>(IGetTheValueOfAProperty<Element, Result> accessor)
+    {
+      return new SummingVisitor<Element, Result>(accessor,
           (x, y) =>
           {
             dynamic first = x;
             dynamic second = y;
             return first + second;
-          }));
-
+          });
     }
 
     public static Result get_result_of_processing_all_with<Element, Result>(this IEnumerable<Element> items,

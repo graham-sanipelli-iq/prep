@@ -5,14 +5,14 @@ namespace code.utility.iteration
 {
   public delegate bool Comparer<Element>(Element a, Element b);
 
-  public class MinMaxVisitor<Element, Result> : IProcessAndReturnAValue<Element, Result> where Result : IComparable<Result>
+  public class ComparingVisitor<Element, Result> : IProcessAndReturnAValue<Element, Result> where Result : IComparable<Result>
   {
     IGetTheValueOfAProperty<Element, Result> accessor;
     Result min;
     bool hasBeenSet;
     Comparer<Result> comparer;
 
-    public MinMaxVisitor(IGetTheValueOfAProperty<Element, Result> accessor, Comparer<Result> comparer)
+    public ComparingVisitor(IGetTheValueOfAProperty<Element, Result> accessor, Comparer<Result> comparer)
     {
       this.accessor = accessor;
       hasBeenSet = false;

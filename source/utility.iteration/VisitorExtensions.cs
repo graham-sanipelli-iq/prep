@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using code.utility.core;
 
 namespace code.utility.iteration
@@ -17,6 +18,20 @@ namespace code.utility.iteration
           });
       
     }
+
+    
+    public static Result max<Element, Result>(this IEnumerable<Element> items,
+      IGetTheValueOfAProperty<Element, Result> accessor) where Result: IComparable<Result>
+    {
+      return items.get_result_of_processing_all_with(new MinMaxVisitor<Element, Result>(accessor, (a, b) => a.CompareTo(b) >= 0));
+    }
+
+    public static Result min<Element, Result>(this IEnumerable<Element> items,
+      IGetTheValueOfAProperty<Element, Result> accessor) where Result: IComparable<Result>
+    {
+      return items.get_result_of_processing_all_with(new MinMaxVisitor<Element, Result>(accessor, (a, b) => a.CompareTo(b) <= 0));
+    }
+
     public static Result sum<Element, Result>(this IEnumerable<Element> items,
       IGetTheValueOfAProperty<Element, Result> accessor)
     {

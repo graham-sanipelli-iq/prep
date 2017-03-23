@@ -9,8 +9,7 @@ namespace code.utility.iteration
     public static Result avg<Element, Result>(this IEnumerable<Element> items,
       IGetTheValueOfAProperty<Element, Result> accessor)
     {
-      return items.get_result_of_processing_all_with(
-        new AveragingVisitor<Element, Result>(createSummer(accessor)));
+      return items.get_result_of_processing_all_with(new AveragingVisitor<Element, Result>(createSummer(accessor)));
 
     }
 

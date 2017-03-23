@@ -13,7 +13,7 @@ namespace code.utility.containers
     {
       get
       {
-        throw new NotImplementedException();
+        return startup();
       }
     }
   }
